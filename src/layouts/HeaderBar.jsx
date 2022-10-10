@@ -1,6 +1,7 @@
 import { Avatar, Button, Menu, Space, Trigger } from '@arco-design/web-react'
 import { IconApps, IconMoon, IconSun } from '@arco-design/web-react/icon'
 import { useEffect, useState } from 'react'
+import styles from './header.module.css'
 
 const MenuItem = Menu.Item
 
@@ -19,8 +20,8 @@ export const HeaderBar = () => {
   }, [isDarkTheme])
 
   return (
-    <div className="layout_header">
-      <div className="items">
+    <div className={styles.header}>
+      <div className={styles.header__items}>
         <Space size="medium">
           <Button
             shape="circle"
@@ -30,7 +31,7 @@ export const HeaderBar = () => {
             onClick={handleChangeTheme}
           />
           <Trigger popup={() => <Popup />} trigger="click" position="bottom">
-            <Avatar style={{ cursor: 'pointer' }}>A</Avatar>
+            <Avatar className={styles.avatar}>A</Avatar>
           </Trigger>
         </Space>
       </div>

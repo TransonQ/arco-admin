@@ -24,15 +24,3 @@ body {
   margin: 12px 8px;
   background: rgba(0, 0, 0, 0.3);
 }
-
-/* 顶部导航栏盒子 */
-.layout_header {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-/* 顶部导航栏 */
-.layout_header .items {
-  margin-left: auto;
-  padding: 0 20px;
-}
