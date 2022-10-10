@@ -1,11 +1,20 @@
-import { Layout, Menu, Message } from '@arco-design/web-react'
+import {
+  Avatar,
+  Button,
+  Layout,
+  Menu,
+  Message,
+  Space,
+} from '@arco-design/web-react'
 import {
   IconCalendar,
   IconCaretLeft,
   IconCaretRight,
   IconHome,
+  IconMoon,
+  IconSun,
 } from '@arco-design/web-react/icon'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import './App.css'
 
@@ -18,9 +27,21 @@ const Content = Layout.Content
 function App() {
   const [collapsed, setCollapsed] = useState(false)
   const handleCollapsed = () => setCollapsed((b) => !b)
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
+  const handleChangeTheme = () => setIsDarkTheme((b) => !b)
+
+  useEffect(() => {
+    if (isDarkTheme) {
+      // 设置为暗黑主题
+      document.body.setAttribute('arco-theme', 'dark')
+    } else {
+      // 恢复亮色主题
+      document.body.removeAttribute('arco-theme')
+    }
+  }, [isDarkTheme])
 
   return (
-    <Layout className="layout-collapse-demo">
+    <Layout className="layout_frame">
       <Sider
         collapsed={collapsed}
         onCollapse={handleCollapsed}
@@ -89,7 +110,26 @@ function App() {
         </Menu>
       </Sider>
       <Layout>
-        <Header style={{ paddingLeft: 20 }}>Header</Header>
+        <Header
+          style={{
+            paddingLeft: 20,
+          }}
+        >
+          <div className="layout_header">
+            <div className="items">
+              <Space size="medium">
+                <Button
+                  shape="circle"
+                  type="default"
+                  style={{ backgroundColor: 'transparent' }}
+                  icon={!isDarkTheme ? <IconMoon /> : <IconSun />}
+                  onClick={handleChangeTheme}
+                />
+                <Avatar>A</Avatar>
+              </Space>
+            </div>
+          </div>
+        </Header>
         <Layout style={{ padding: '0 24px' }}>
           <Content>Content</Content>
         </Layout>

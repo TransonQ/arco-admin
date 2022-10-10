@@ -1,9 +1,14 @@
-.layout-collapse-demo {
+body {
+  background-color: var(--color-bg-1);
+  color: var(--color-text-1);
+}
+
+.layout_frame {
   height: 100vh;
   background: var(--color-fill-2);
 }
 
-.layout-collapse-demo .arco-layout-header {
+.layout_frame .arco-layout-header {
   height: 64px;
   line-height: 64px;
   background: var(--color-bg-3);
@@ -13,8 +18,18 @@
   height: 100vh;
 }
 
-.layout-collapse-demo .arco-layout-sider .logo {
+.layout_frame .arco-layout-sider .logo {
   height: 32px;
   margin: 12px 8px;
   background: rgba(0, 0, 0, 0.3);
+}
+
+.layout_header {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.layout_header .items {
+  margin-left: auto;
+  padding: 0 20px;
 }
