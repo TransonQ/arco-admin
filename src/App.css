@@ -1,0 +1,20 @@
+.layout-collapse-demo {
+  height: 100vh;
+  background: var(--color-fill-2);
+}
+
+.layout-collapse-demo .arco-layout-header {
+  height: 64px;
+  line-height: 64px;
+  background: var(--color-bg-3);
+}
+
+.arco-layout-sider {
+  height: 100vh;
+}
+
+.layout-collapse-demo .arco-layout-sider .logo {
+  height: 32px;
+  margin: 12px 8px;
+  background: rgba(0, 0, 0, 0.3);
+}
