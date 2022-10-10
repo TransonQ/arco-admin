@@ -1,6 +1,8 @@
-import { Avatar, Button, Space } from '@arco-design/web-react'
-import { IconMoon, IconSun } from '@arco-design/web-react/icon'
+import { Avatar, Button, Menu, Space, Trigger } from '@arco-design/web-react'
+import { IconApps, IconMoon, IconSun } from '@arco-design/web-react/icon'
 import { useEffect, useState } from 'react'
+
+const MenuItem = Menu.Item
 
 export const HeaderBar = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false)
@@ -27,9 +29,26 @@ export const HeaderBar = () => {
             icon={!isDarkTheme ? <IconMoon /> : <IconSun />}
             onClick={handleChangeTheme}
           />
-          <Avatar>A</Avatar>
+          <Trigger popup={() => <Popup />} trigger="click" position="bottom">
+            <Avatar style={{ cursor: 'pointer' }}>A</Avatar>
+          </Trigger>
         </Space>
       </div>
     </div>
+  )
+}
+
+function Popup() {
+  return (
+    <Menu>
+      <MenuItem key="0">
+        <IconApps />
+        Navigation 1
+      </MenuItem>
+      <MenuItem key="0">
+        <IconApps />
+        Navigation 2
+      </MenuItem>
+    </Menu>
   )
 }
