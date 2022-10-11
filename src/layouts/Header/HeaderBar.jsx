@@ -1,5 +1,10 @@
 import { Avatar, Button, Menu, Space, Trigger } from '@arco-design/web-react'
-import { IconApps, IconMoon, IconSun } from '@arco-design/web-react/icon'
+import {
+  IconEdit,
+  IconMoon,
+  IconSun,
+  IconUser,
+} from '@arco-design/web-react/icon'
 import { useEffect, useState } from 'react'
 import styles from './header.module.css'
 
@@ -41,14 +46,14 @@ export const HeaderBar = () => {
 
 function Popup() {
   return (
-    <Menu>
+    <Menu style={{ minWidth: 140 }}>
       <MenuItem key="0">
-        <IconApps />
-        Navigation 1
+        <IconEdit />
+        Settings
       </MenuItem>
-      <MenuItem key="0">
-        <IconApps />
-        Navigation 2
+      <MenuItem key="1">
+        <IconUser />
+        Log out
       </MenuItem>
     </Menu>
   )

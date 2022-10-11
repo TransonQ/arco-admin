@@ -1,0 +1,22 @@
+/* 设置整体布局的底色 */
+.layout_frame {
+  height: 100vh;
+  background: var(--color-fill-2);
+}
+/* 设置背景顶部布局的颜色 */
+.layout_frame .arco-layout-header {
+  height: 64px;
+  line-height: 64px;
+  background: var(--color-bg-3);
+}
+/* 侧边菜单栏的高度 */
+.arco-layout-sider {
+  height: 100vh;
+}
+
+/* 侧边栏的logo区域 */
+.layout_frame .arco-layout-sider .logo {
+  height: 32px;
+  margin: 12px 8px;
+  background: rgba(0, 0, 0, 0.3);
+}

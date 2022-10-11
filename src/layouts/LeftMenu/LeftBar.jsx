@@ -1,33 +1,32 @@
-import { Menu, Message } from '@arco-design/web-react'
+import { Menu } from '@arco-design/web-react'
 import { IconCalendar, IconHome } from '@arco-design/web-react/icon'
+import { useCallback } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const MenuItem = Menu.Item
 const SubMenu = Menu.SubMenu
 
 export const LeftBar = () => {
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+  console.log('pathname: ', pathname)
+
+  const handleClick = useCallback((key) => navigate(key), [navigate])
+
   return (
     <Menu
-      defaultOpenKeys={['1']}
-      defaultSelectedKeys={['0_3']}
-      onClickMenuItem={(key) =>
-        Message.info({
-          content: `You select ${key}`,
-          showIcon: true,
-        })
-      }
+      defaultOpenKeys={['/']}
+      defaultSelectedKeys={[pathname]}
+      onClickMenuItem={handleClick}
       style={{ width: '100%' }}
     >
-      <MenuItem key="0_1" disabled>
+      <MenuItem key="/">
         <IconHome />
-        Menu 1
+        Home
       </MenuItem>
-      <MenuItem key="0_2">
+      <MenuItem key="/campaign">
         <IconCalendar />
-        Menu 2
-      </MenuItem>
-      <MenuItem key="0_3">
-        <IconCalendar />
-        Menu 3
+        camapign
       </MenuItem>
       <SubMenu
         key="1"
