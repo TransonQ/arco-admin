@@ -1,6 +1,6 @@
-# react18 + vite3
+# Arco admin
 
-> 一句话说明: 基于 vite3 ,集成并扩展 CRA 的 eslint 和 commit 规范
+## react18 + vite3 + Arco design + react-router-dom@6.3
 
 ## Commits 规范说明：
 
