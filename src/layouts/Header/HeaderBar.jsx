@@ -36,7 +36,7 @@ export const HeaderBar = () => {
             icon={!isDarkTheme ? <IconMoon /> : <IconSun />}
             onClick={handleChangeTheme}
           />
-          <Trigger popup={() => <Popup />} trigger="click" position="bottom">
+          <Trigger popup={() => <Popup />} trigger="hover" position="bottom">
             <Avatar className={styles.avatar}>A</Avatar>
           </Trigger>
         </Space>
