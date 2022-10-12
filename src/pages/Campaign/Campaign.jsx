@@ -1,3 +1,3 @@
 export const Campaign = () => {
-  return <div>Campaign</div>
+  return <h1>Campaign</h1>
 }

@@ -5,7 +5,8 @@ import {
   IconSun,
   IconUser,
 } from '@arco-design/web-react/icon'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './header.module.css'
 
 const MenuItem = Menu.Item
@@ -45,9 +46,12 @@ export const HeaderBar = () => {
 }
 
 function Popup() {
+  const nav = useNavigate()
+
+  const handleNav2Settings = useCallback(() => nav('/settings'), [nav])
   return (
     <Menu style={{ minWidth: 140 }}>
-      <MenuItem key="0">
+      <MenuItem key="0" onClick={handleNav2Settings}>
         <IconEdit />
         Settings
       </MenuItem>
