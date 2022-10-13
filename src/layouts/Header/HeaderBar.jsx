@@ -1,4 +1,4 @@
-import { Avatar, Button, Menu, Space, Trigger } from '@arco-design/web-react'
+import { Avatar, Button, Dropdown, Menu, Space } from '@arco-design/web-react'
 import {
   IconEdit,
   IconMoon,
@@ -11,10 +11,18 @@ import styles from './header.module.css'
 
 const MenuItem = Menu.Item
 
+const iconStyle = {
+  marginRight: 8,
+  fontSize: 16,
+  transform: 'translateY(1px)',
+}
+
 export const HeaderBar = () => {
+  const nav = useNavigate()
+
+  // 主题切换
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   const handleChangeTheme = () => setIsDarkTheme((b) => !b)
-
   useEffect(() => {
     if (isDarkTheme) {
       // 设置为暗黑主题
@@ -24,6 +32,23 @@ export const HeaderBar = () => {
       document.body.removeAttribute('arco-theme')
     }
   }, [isDarkTheme])
+
+  // 点击个人设置
+  const handleNav2Settings = useCallback(() => nav('/settings'), [nav])
+
+  // 下拉菜单
+  const menuList = (
+    <Menu style={{ minWidth: 140 }}>
+      <MenuItem key="0" onClick={handleNav2Settings}>
+        <IconEdit style={iconStyle} />
+        Settings
+      </MenuItem>
+      <MenuItem key="1">
+        <IconUser style={iconStyle} />
+        Log out
+      </MenuItem>
+    </Menu>
+  )
 
   return (
     <div className={styles.header}>
@@ -36,29 +61,11 @@ export const HeaderBar = () => {
             icon={!isDarkTheme ? <IconMoon /> : <IconSun />}
             onClick={handleChangeTheme}
           />
-          <Trigger popup={() => <Popup />} trigger="hover" position="bottom">
+          <Dropdown droplist={menuList} trigger="click" position="bl">
             <Avatar className={styles.avatar}>A</Avatar>
-          </Trigger>
+          </Dropdown>
         </Space>
       </div>
     </div>
-  )
-}
-
-function Popup() {
-  const nav = useNavigate()
-
-  const handleNav2Settings = useCallback(() => nav('/settings'), [nav])
-  return (
-    <Menu style={{ minWidth: 140 }}>
-      <MenuItem key="0" onClick={handleNav2Settings}>
-        <IconEdit />
-        Settings
-      </MenuItem>
-      <MenuItem key="1">
-        <IconUser />
-        Log out
-      </MenuItem>
-    </Menu>
   )
 }
