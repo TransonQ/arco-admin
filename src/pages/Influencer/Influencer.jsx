@@ -2,6 +2,7 @@ import {
   Button,
   Card,
   Divider,
+  Drawer,
   Grid,
   Input,
   PageHeader,
@@ -69,10 +70,28 @@ const data = [
 ]
 
 export const Influencer = () => {
+  // Drawer
+  const [visible, setVisible] = useState(false)
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
 
   return (
     <div style={{ background: 'var(--color-bg-2)' }}>
+      <Drawer
+        width={420}
+        title={<span>Basic Information </span>}
+        visible={visible}
+        onOk={() => {
+          setVisible(false)
+        }}
+        onCancel={() => {
+          setVisible(false)
+        }}
+      >
+        <div>Here is an example text.</div>
+
+        <div>Here is an example text.</div>
+      </Drawer>
+
       <PageHeader
         title="Influencer"
         subTitle="This is a description"
@@ -100,27 +119,38 @@ export const Influencer = () => {
                   placeholder="Search"
                   allowClear
                 />
-                <Button size="large" type="primary">
-                  More filters
+                <Button
+                  size="large"
+                  type="primary"
+                  onClick={() => {
+                    setVisible(true)
+                  }}
+                >
+                  More filters (3)
                 </Button>
               </Input.Group>
 
-              <Grid.Row>
-                <Grid.Col span={7}>
+              <Grid.Row gutter={24}>
+                <Grid.Col span={8}>
                   Platform
                   <Select size="small" style={{ width: '100%' }}></Select>
                 </Grid.Col>
-                <Divider type="vertical" style={{ height: '100%' }} />
-                <Grid.Col span={7}>
+                <Grid.Col span={8}>
                   Language <Select size="small"></Select>
                 </Grid.Col>
-                <Divider type="vertical" style={{ height: '100%' }} />
-                <Grid.Col span={7}>
+                <Grid.Col span={8}>
                   Tier <Select size="small"></Select>
                 </Grid.Col>
               </Grid.Row>
 
               <Divider />
+              <Space>
+                <Button type="primary">按钮</Button>
+                <Button type="secondary">按钮</Button>
+                <Button type="outline">按钮</Button>
+                <Button type="dashed">按钮</Button>
+              </Space>
+
               <Table
                 rowKey="id"
                 columns={columns}
