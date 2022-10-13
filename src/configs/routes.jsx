@@ -1,4 +1,5 @@
 import { NotFound } from '@/pages/404/NotFound'
+import { Analytics } from '@/pages/Analytics/Analytics'
 import { Campaign } from '@/pages/Campaign/Campaign'
 import { Home } from '@/pages/Home/Home'
 import { Influencer } from '@/pages/Influencer/Influencer'
@@ -18,6 +19,11 @@ export const routes = [
   {
     path: '/influencer',
     element: <Influencer />,
+    children: [],
+  },
+  {
+    path: '/analytics',
+    element: <Analytics />,
     children: [],
   },
   {

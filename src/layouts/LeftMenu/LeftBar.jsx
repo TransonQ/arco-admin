@@ -1,5 +1,9 @@
 import { Menu } from '@arco-design/web-react'
-import { IconCalendar, IconHome } from '@arco-design/web-react/icon'
+import {
+  IconCalendar,
+  IconFormula,
+  IconHome,
+} from '@arco-design/web-react/icon'
 import { useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -40,6 +44,10 @@ export const LeftBar = () => {
         <MenuItem key="/campaign">Campaign</MenuItem>
         <MenuItem key="/campaign/2">not found</MenuItem>
       </SubMenu>
+      <MenuItem key="/analytics">
+        <IconFormula />
+        Analytics
+      </MenuItem>
     </Menu>
   )
 }
