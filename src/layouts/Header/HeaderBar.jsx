@@ -1,12 +1,16 @@
+import { localeAtom } from '@/global/localeState'
+import { useToggleLocalState } from '@/hooks/useToggleLocalState'
 import { Avatar, Button, Dropdown, Menu, Space } from '@arco-design/web-react'
 import {
   IconEdit,
+  IconLanguage,
   IconMoon,
   IconSun,
   IconUser,
 } from '@arco-design/web-react/icon'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useRecoilState } from 'recoil'
 import styles from './header.module.css'
 
 const MenuItem = Menu.Item
@@ -20,9 +24,34 @@ const iconStyle = {
 export const HeaderBar = () => {
   const nav = useNavigate()
 
+  // 多语言切换
+  const [, setSelectLanguage] = useRecoilState(localeAtom)
+  // 多语言选项列表
+  const LanguageOptions = (
+    <Menu style={{ minWidth: 140 }}>
+      <MenuItem
+        key="0"
+        onClick={() => {
+          setSelectLanguage('en')
+        }}
+      >
+        English
+      </MenuItem>
+      <MenuItem
+        key="1"
+        onClick={() => {
+          setSelectLanguage('zh')
+        }}
+      >
+        简体中文
+      </MenuItem>
+    </Menu>
+  )
+
   // 主题切换
-  const [isDarkTheme, setIsDarkTheme] = useState(false)
-  const handleChangeTheme = () => setIsDarkTheme((b) => !b)
+  const { active: isDarkTheme, toggle: handleThemeToggle } =
+    useToggleLocalState('arco_admin_dark_theme')
+
   useEffect(() => {
     if (isDarkTheme) {
       // 设置为暗黑主题
@@ -33,17 +62,20 @@ export const HeaderBar = () => {
     }
   }, [isDarkTheme])
 
-  // 点击个人设置
+  // 用户设置
   const handleNav2Settings = useCallback(() => nav('/settings'), [nav])
 
-  // 下拉菜单
-  const menuList = (
+  // 用户退出登录
+  const handleLogout = useCallback(() => {}, [])
+
+  // 点击用户菜单
+  const userSettings = (
     <Menu style={{ minWidth: 140 }}>
       <MenuItem key="0" onClick={handleNav2Settings}>
         <IconEdit style={iconStyle} />
         Settings
       </MenuItem>
-      <MenuItem key="1">
+      <MenuItem key="1" onClick={handleLogout}>
         <IconUser style={iconStyle} />
         Log out
       </MenuItem>
@@ -54,14 +86,16 @@ export const HeaderBar = () => {
     <div className={styles.header}>
       <div className={styles.header__items}>
         <Space size="medium">
+          <Dropdown droplist={LanguageOptions} trigger="click" position="br">
+            <Button shape="circle" icon={<IconLanguage />} />
+          </Dropdown>
           <Button
             shape="circle"
             type="default"
-            style={{ backgroundColor: 'transparent' }}
             icon={!isDarkTheme ? <IconMoon /> : <IconSun />}
-            onClick={handleChangeTheme}
+            onClick={handleThemeToggle}
           />
-          <Dropdown droplist={menuList} trigger="click" position="bl">
+          <Dropdown droplist={userSettings} trigger="click" position="bl">
             <Avatar className={styles.avatar}>A</Avatar>
           </Dropdown>
         </Space>
