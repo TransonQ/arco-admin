@@ -1,6 +1,35 @@
 # Arco admin
 
-## react18 + vite3 + Arco design + react-router-dom@6.3
+## 主要技术栈
+
+- react18
+- vite3
+- recoil
+- Arco design
+- react-router-dom@6.3
+
+## 使用[主题包](https://arco.design/themes)
+
+```bash
+npm i @arco-themes/react-quange
+npm i @arco-plugins/vite-react less -D
+```
+
+- 使用自定义主题包: 需要注释掉默认引用的样式: // import '@arco-design/web-react/dist/css/arco.css'
+- 使用默认主题包则引入默认样式
+
+```js
+// vite.config.js
+
+import {vitePluginForArco} from '@arco-plugins/vite-react'
+
+export default {
+  ...
+  plugins: [
+    vitePluginForArco({theme:"@arco-themes/react-quange"}),
+  ],
+}
+```
 
 ## Commits 规范说明：
 
