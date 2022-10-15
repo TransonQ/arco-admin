@@ -1,8 +1,8 @@
 import {
   Button,
   Card,
-  Divider,
   Drawer,
+  Form,
   Grid,
   Input,
   PageHeader,
@@ -103,72 +103,111 @@ export const Influencer = () => {
         <Card bordered={false}>
           <Tabs defaultActiveTab="1" size="large" type="rounded">
             <Tabs.TabPane key="1" title="All">
-              <Space direction="vertical" style={{ width: '100%' }}>
-                <Input.Group compact style={{ display: 'flex' }}>
-                  <Select
-                    size="large"
-                    defaultValue="Beijing"
-                    showSearch
-                    allowClear
-                    style={{ width: '15%' }}
+              <Space
+                direction="vertical"
+                size="medium"
+                style={{ width: '100%' }}
+              >
+                <Form labelAlign="left" layout="vertical">
+                  <Space
+                    direction="vertical"
+                    style={{ width: '100%' }}
+                    size="medium"
                   >
-                    <Select.Option value="Beijing">Beijing</Select.Option>
-                    <Select.Option value="Tianjin">Tianjin</Select.Option>
-                    <Select.Option value="Shanghai">Shanghai</Select.Option>
-                  </Select>
-                  <Input.Search
-                    size="large"
-                    style={{ width: '85%' }}
-                    placeholder="Search"
-                    allowClear
-                  />
-                  <Button
-                    size="large"
-                    type="primary"
-                    onClick={() => {
-                      setVisible(true)
+                    <Form.Item noStyle>
+                      <Grid.Row gutter={8}>
+                        <Grid.Col span={4}>
+                          <Select
+                            size="large"
+                            defaultValue="Beijing"
+                            showSearch
+                            allowClear
+                          >
+                            <Select.Option value="Beijing">
+                              Beijing
+                            </Select.Option>
+                            <Select.Option value="Tianjin">
+                              Tianjin
+                            </Select.Option>
+                            <Select.Option value="Shanghai">
+                              Shanghai
+                            </Select.Option>
+                          </Select>
+                        </Grid.Col>
+                        <Grid.Col span={16}>
+                          <Input.Search
+                            size="large"
+                            placeholder="Search"
+                            allowClear
+                          />
+                        </Grid.Col>
+                        <Grid.Col span={4}>
+                          <Button
+                            size="large"
+                            type="primary"
+                            style={{ width: '100%' }}
+                            onClick={() => {
+                              setVisible(true)
+                            }}
+                          >
+                            More filters (3)
+                          </Button>
+                        </Grid.Col>
+                      </Grid.Row>
+                    </Form.Item>
+                    <Form.Item noStyle>
+                      <Grid.Row gutter={8}>
+                        <Grid.Col span={8}>
+                          <Form.Item
+                            label="Platform"
+                            style={{ textAlign: 'left' }}
+                          >
+                            <Select size="small" style={{ flex: 1 }}></Select>
+                          </Form.Item>
+                        </Grid.Col>
+                        <Grid.Col span={8}>
+                          <Form.Item label="Language">
+                            <Select size="small"></Select>
+                          </Form.Item>
+                        </Grid.Col>
+                        <Grid.Col span={8}>
+                          <Form.Item label="Tier">
+                            <Select size="small"></Select>
+                          </Form.Item>
+                        </Grid.Col>
+                      </Grid.Row>
+                    </Form.Item>
+                  </Space>
+                </Form>
+
+                <Space
+                  direction="vertical"
+                  size="medium"
+                  style={{ width: '100%' }}
+                >
+                  <Space>
+                    <Button type="primary">按钮</Button>
+                    <Button type="secondary">按钮</Button>
+                    <Button type="outline">按钮</Button>
+                    <Button type="dashed">按钮</Button>
+                  </Space>
+
+                  <Table
+                    rowKey="id"
+                    columns={columns}
+                    data={data}
+                    rowSelection={{
+                      selectedRowKeys,
+                      onChange: (selectedRowKeys, selectedRows) => {
+                        // console.log('onChange:', selectedRowKeys, selectedRows)
+                        setSelectedRowKeys(selectedRowKeys)
+                      },
+                      onSelect: (selected, record, selectedRows) => {
+                        // console.log('onSelect:', selected, record, selectedRows)
+                      },
                     }}
-                  >
-                    More filters (3)
-                  </Button>
-                </Input.Group>
-
-                <Grid.Row gutter={24}>
-                  <Grid.Col span={8}>
-                    Platform
-                    <Select size="small" style={{ width: '100%' }}></Select>
-                  </Grid.Col>
-                  <Grid.Col span={8}>
-                    Language <Select size="small"></Select>
-                  </Grid.Col>
-                  <Grid.Col span={8}>
-                    Tier <Select size="small"></Select>
-                  </Grid.Col>
-                </Grid.Row>
-
-                <Divider />
-                <Space>
-                  <Button type="primary">按钮</Button>
-                  <Button type="secondary">按钮</Button>
-                  <Button type="outline">按钮</Button>
-                  <Button type="dashed">按钮</Button>
+                  />
                 </Space>
-
-                <Table
-                  rowKey="id"
-                  columns={columns}
-                  data={data}
-                  rowSelection={{
-                    selectedRowKeys,
-                    onChange: (selectedRowKeys, selectedRows) => {
-                      // console.log('onChange:', selectedRowKeys, selectedRows)
-                      setSelectedRowKeys(selectedRowKeys)
-                    },
-                    onSelect: (selected, record, selectedRows) => {
-                      // console.log('onSelect:', selected, record, selectedRows)
-                    },
-                  }}
-                />
               </Space>
             </Tabs.TabPane>
             <Tabs.TabPane key="2" title="Youtube"></Tabs.TabPane>
