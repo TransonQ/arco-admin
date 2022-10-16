@@ -1,5 +1,28 @@
 # Arco admin
 
+## 主要技术栈
+
+- react18
+- vite3
+- recoil
+- Arco design
+- react-router-dom@6.3
+
+## todos
+
+- [ ] 登录页
+- [x] 路由
+- [x] 应用 layout 布局
+- [x] 暗黑模式切换
+- [x] 自定义多语言配置
+- [ ] home 示例页
+- [x] 分析图表页
+- [ ] 个人中心示例页
+- [x] 请求拦截器和请求格式示例
+- [x] 用户状态 recoil 的异步 selector(get) + suspense
+- [ ] 用户状态 recoil 的异步 selector(set) 更新状态
+- [x] 刷新页面跟随 dark/light 模式切换背景
+
 ## 启动方式
 
 1. 先打开本地服务
@@ -13,14 +36,6 @@
    ```js
    npm run dev
    ```
-
-## 主要技术栈
-
-- react18
-- vite3
-- recoil
-- Arco design
-- react-router-dom@6.3
 
 ## 使用[主题包](https://arco.design/themes)
 
