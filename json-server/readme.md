@@ -37,7 +37,7 @@ npm run ip # mac系统需要先给予执行权限 chmod 755 json-server/ip.sh
 
 ```json
 {
-  "host" ""  // 本地ip
+  "host": "localhost", // 本地ip
   "port": 3005,
   "watch": true,
   "routes": "json-server/routes.json",

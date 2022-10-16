@@ -1,5 +1,19 @@
 # Arco admin
 
+## 启动方式
+
+1. 先打开本地服务
+
+   ```js
+   npm run jserver
+   ```
+
+2. 启动项目
+
+   ```js
+   npm run dev
+   ```
+
 ## 主要技术栈
 
 - react18
@@ -26,7 +40,7 @@ import {vitePluginForArco} from '@arco-plugins/vite-react'
 export default {
   ...
   plugins: [
-    vitePluginForArco({theme:"@arco-themes/react-quange"}),
+    vitePluginForArco({ theme:"@arco-themes/react-quange" }),
   ],
 }
 ```

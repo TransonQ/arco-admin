@@ -1,6 +1,8 @@
+import { getUser } from '@/api/user'
 import { routes } from '@/configs/routes'
 import { Layout } from '@arco-design/web-react'
 import { IconCaretLeft, IconCaretRight } from '@arco-design/web-react/icon'
+import { useMount } from 'ahooks'
 import { useState } from 'react'
 import { useRoutes } from 'react-router-dom'
 import { HeaderBar } from '../Header'
@@ -16,6 +18,11 @@ export const Main = () => {
 
   const [collapsed, setCollapsed] = useState(false)
   const handleCollapsed = () => setCollapsed((b) => !b)
+
+  useMount(async () => {
+    const data = await getUser()
+    console.log('data: ', data)
+  })
 
   return (
     <Layout className="layout_frame">
