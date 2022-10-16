@@ -1,4 +1,5 @@
 import { localeAtom } from '@/global/localeState'
+import { userSelector } from '@/global/userState'
 import { useToggleLocalState } from '@/hooks/useToggleLocalState'
 import { Avatar, Button, Dropdown, Menu, Space } from '@arco-design/web-react'
 import {
@@ -10,7 +11,7 @@ import {
 } from '@arco-design/web-react/icon'
 import { useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import styles from './header.module.css'
 
 const MenuItem = Menu.Item
@@ -82,6 +83,9 @@ export const HeaderBar = () => {
     </Menu>
   )
 
+  const userData = useRecoilValue(userSelector)
+  console.log('userData: ', userData)
+
   return (
     <div className={styles.header}>
       <div className={styles.header__items}>
@@ -96,7 +100,7 @@ export const HeaderBar = () => {
             onClick={handleThemeToggle}
           />
           <Dropdown droplist={userSettings} trigger="click" position="bl">
-            <Avatar className={styles.avatar}>A</Avatar>
+            <Avatar className={styles.avatar}>{userData.name}</Avatar>
           </Dropdown>
         </Space>
       </div>

@@ -1,0 +1,14 @@
+.loadingPage {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--color-fill-2);
+}
+
+.dark {
+  background-color: #2e2e30;
+}
+
+.light {
+  background-color: #f2f3f5;
+}

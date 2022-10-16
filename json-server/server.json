@@ -3,5 +3,5 @@
   "port": 3005,
   "watch": true,
   "routes": "json-server/routes.json",
-  "delay": 400
+  "delay": 500
 }

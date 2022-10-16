@@ -1,9 +1,8 @@
-import { getUser } from '@/api/user'
+import { FreshPage } from '@/components/FreshPage/FreshPage'
 import { routes } from '@/configs/routes'
 import { Layout } from '@arco-design/web-react'
 import { IconCaretLeft, IconCaretRight } from '@arco-design/web-react/icon'
-import { useMount } from 'ahooks'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { useRoutes } from 'react-router-dom'
 import { HeaderBar } from '../Header'
 import { LeftBar } from '../LeftMenu'
@@ -19,31 +18,33 @@ export const Main = () => {
   const [collapsed, setCollapsed] = useState(false)
   const handleCollapsed = () => setCollapsed((b) => !b)
 
-  useMount(async () => {
-    const data = await getUser()
-    console.log('data: ', data)
-  })
+  // useMount(async () => {
+  //   const data = await getUser()
+  //   console.log('data: ', data)
+  // })
 
   return (
-    <Layout className="layout_frame">
-      <Sider
-        collapsed={collapsed}
-        onCollapse={handleCollapsed}
-        collapsible
-        trigger={collapsed ? <IconCaretRight /> : <IconCaretLeft />}
-        breakpoint="xl"
-      >
-        <div className="logo"></div>
-        <LeftBar />
-      </Sider>
-      <Layout>
-        <Header>
-          <HeaderBar />
-        </Header>
-        <Layout style={{ padding: '24px' }}>
-          <Content>{elements}</Content>
+    <Suspense fallback={<FreshPage />}>
+      <Layout className="layout_frame">
+        <Sider
+          collapsed={collapsed}
+          onCollapse={handleCollapsed}
+          collapsible
+          trigger={collapsed ? <IconCaretRight /> : <IconCaretLeft />}
+          breakpoint="xl"
+        >
+          <div className="logo"></div>
+          <LeftBar />
+        </Sider>
+        <Layout>
+          <Header>
+            <HeaderBar />
+          </Header>
+          <Layout style={{ padding: '24px' }}>
+            <Content>{elements}</Content>
+          </Layout>
         </Layout>
       </Layout>
-    </Layout>
+    </Suspense>
   )
 }
