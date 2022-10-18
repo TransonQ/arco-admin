@@ -27,6 +27,7 @@ const handleRequestErr = (error) => {
 
 // response
 const handleResponse = (response) => {
+  // return Promise.reject(new Error('shibai')) // 测试错误边界
   return response
 }
 // response error

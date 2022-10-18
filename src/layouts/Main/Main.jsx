@@ -1,8 +1,10 @@
+import { ErrorFallback } from '@/components/ErrorFallback/ErrorFallback'
 import { FreshPage } from '@/components/FreshPage/FreshPage'
 import { routes } from '@/configs/routes'
 import { Layout } from '@arco-design/web-react'
 import { IconCaretLeft, IconCaretRight } from '@arco-design/web-react/icon'
 import { Suspense, useState } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { useRoutes } from 'react-router-dom'
 import { HeaderBar } from '../Header'
 import { LeftBar } from '../LeftMenu'
@@ -36,14 +38,16 @@ export const Main = () => {
           <div className="logo"></div>
           <LeftBar />
         </Sider>
-        <Layout>
-          <Header>
-            <HeaderBar />
-          </Header>
-          <Layout style={{ padding: '24px' }}>
-            <Content>{elements}</Content>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Layout>
+            <Header>
+              <HeaderBar />
+            </Header>
+            <Layout style={{ padding: '24px' }}>
+              <Content>{elements}</Content>
+            </Layout>
           </Layout>
-        </Layout>
+        </ErrorBoundary>
       </Layout>
     </Suspense>
   )
