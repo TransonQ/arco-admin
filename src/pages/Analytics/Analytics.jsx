@@ -160,7 +160,10 @@ export const Analytics = () => {
         // extra // 展示额外内容	ReactNode
       >
         <Grid.Row>
-          <Grid.Col span={7} style={{ textAlign: 'center' }}>
+          <Grid.Col
+            span={7}
+            style={{ textAlign: 'center' }}
+          >
             <Statistic
               title="New Users"
               value={192393}
@@ -168,8 +171,14 @@ export const Analytics = () => {
               style={{ marginRight: 60, marginBottom: 20 }}
             />
           </Grid.Col>
-          <Divider type="vertical" style={{ height: 70 }} />
-          <Grid.Col span={7} style={{ textAlign: 'center' }}>
+          <Divider
+            type="vertical"
+            style={{ height: 70 }}
+          />
+          <Grid.Col
+            span={7}
+            style={{ textAlign: 'center' }}
+          >
             <Statistic
               title="Active Users"
               value={934230}
@@ -177,8 +186,14 @@ export const Analytics = () => {
               style={{ marginRight: 60, marginBottom: 20 }}
             />
           </Grid.Col>
-          <Divider type="vertical" style={{ height: 70 }} />
-          <Grid.Col span={7} style={{ textAlign: 'center' }}>
+          <Divider
+            type="vertical"
+            style={{ height: 70 }}
+          />
+          <Grid.Col
+            span={7}
+            style={{ textAlign: 'center' }}
+          >
             <Statistic
               title="User Growth Rate"
               value={50.32}
@@ -199,7 +214,11 @@ export const Analytics = () => {
           data={data}
           interactions={['element-active']}
         >
-          <Point position="month*temperature" color="city" shape="circle" />
+          <Point
+            position="month*temperature"
+            color="city"
+            shape="circle"
+          />
           <Line
             shape="smooth"
             position="month*temperature"

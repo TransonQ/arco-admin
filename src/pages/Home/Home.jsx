@@ -9,7 +9,11 @@ import {
 
 export const Home = () => {
   return (
-    <Space direction="vertical" style={{ width: '100%' }} size="medium">
+    <Space
+      direction="vertical"
+      style={{ width: '100%' }}
+      size="medium"
+    >
       <Card bordered={false}>
         <PageHeader
           title="Home"
@@ -24,7 +28,11 @@ export const Home = () => {
       </Card>
       <Card bordered={false}>
         <Form>
-          <Space direction="vertical" style={{ width: '100%' }} size="medium">
+          <Space
+            direction="vertical"
+            style={{ width: '100%' }}
+            size="medium"
+          >
             <Form.Item noStyle>
               <Input />
             </Form.Item>

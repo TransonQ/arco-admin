@@ -17,9 +17,18 @@ function App() {
     <ConfigProvider locale={language}>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/redirect" element={<Redirect />} />
-          <Route path="/*" element={<Main />} />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/redirect"
+            element={<Redirect />}
+          />
+          <Route
+            path="/*"
+            element={<Main />}
+          />
         </Routes>
       </BrowserRouter>
     </ConfigProvider>

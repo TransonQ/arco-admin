@@ -91,7 +91,11 @@ export const Influencer = () => {
 
         <div>Here is an example text.</div>
       </Drawer>
-      <Space direction="vertical" style={{ width: '100%' }} size="medium">
+      <Space
+        direction="vertical"
+        style={{ width: '100%' }}
+        size="medium"
+      >
         <Card bordered={false}>
           <PageHeader
             title="Influencer"
@@ -101,14 +105,24 @@ export const Influencer = () => {
         </Card>
 
         <Card bordered={false}>
-          <Tabs defaultActiveTab="1" size="large" type="rounded">
-            <Tabs.TabPane key="1" title="All">
+          <Tabs
+            defaultActiveTab="1"
+            size="large"
+            type="rounded"
+          >
+            <Tabs.TabPane
+              key="1"
+              title="All"
+            >
               <Space
                 direction="vertical"
                 size="medium"
                 style={{ width: '100%' }}
               >
-                <Form labelAlign="left" layout="vertical">
+                <Form
+                  labelAlign="left"
+                  layout="vertical"
+                >
                   <Space
                     direction="vertical"
                     style={{ width: '100%' }}
@@ -162,7 +176,10 @@ export const Influencer = () => {
                             label="Platform"
                             style={{ textAlign: 'left' }}
                           >
-                            <Select size="small" style={{ flex: 1 }}></Select>
+                            <Select
+                              size="small"
+                              style={{ flex: 1 }}
+                            ></Select>
                           </Form.Item>
                         </Grid.Col>
                         <Grid.Col span={8}>
@@ -210,10 +227,22 @@ export const Influencer = () => {
                 </Space>
               </Space>
             </Tabs.TabPane>
-            <Tabs.TabPane key="2" title="Youtube"></Tabs.TabPane>
-            <Tabs.TabPane key="3" title="Instagram"></Tabs.TabPane>
-            <Tabs.TabPane key="4" title="TikTok"></Tabs.TabPane>
-            <Tabs.TabPane key="5" title="Twitter"></Tabs.TabPane>
+            <Tabs.TabPane
+              key="2"
+              title="Youtube"
+            ></Tabs.TabPane>
+            <Tabs.TabPane
+              key="3"
+              title="Instagram"
+            ></Tabs.TabPane>
+            <Tabs.TabPane
+              key="4"
+              title="TikTok"
+            ></Tabs.TabPane>
+            <Tabs.TabPane
+              key="5"
+              title="Twitter"
+            ></Tabs.TabPane>
           </Tabs>
         </Card>
       </Space>
