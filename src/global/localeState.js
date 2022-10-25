@@ -11,7 +11,7 @@ export const localeSelector = selector({
   key: 'localeSelector',
   get: ({ get }) => {
     const locale = get(localeAtom)
-
+    // default locale object of Arco design
     switch (locale) {
       case 'zh-CN':
         return zhCN

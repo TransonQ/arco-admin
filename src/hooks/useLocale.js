@@ -1,8 +1,8 @@
 import { localeAtom } from '@/global/localeState'
 import { localeLanguage } from '@/locale/locale'
-import { useRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
 
 export const useLocale = () => {
-  const [lang] = useRecoilState(localeAtom)
+  const lang = useRecoilValue(localeAtom)
   return localeLanguage[lang]
 }

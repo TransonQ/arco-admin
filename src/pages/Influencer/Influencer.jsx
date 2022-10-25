@@ -1,5 +1,4 @@
-import { localeLanguage } from '@/locale/locale'
-import { useLocale } from '@/utils/useLocale'
+import { useLocale } from '@/hooks/useLocale'
 import {
   Button,
   Card,
@@ -71,9 +70,7 @@ const data = [
 ]
 
 export const Influencer = () => {
-  console.log('localeLanguage', localeLanguage)
   const locale = useLocale()
-  console.log('locale: ', locale)
   // Drawer
   const [visible, setVisible] = useState(false)
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
