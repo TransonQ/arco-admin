@@ -11,7 +11,8 @@
     "lint": "eslint src --ext .js,.jsx,.ts --fix",
     "prepare": "husky install",
     "ip": "json-server/ip.sh",
-    "jserver": "json-server --watch -c json-server/server.json json-server/db.json"
+    "jserver": "json-server --watch -c json-server/server.json json-server/db.json",
+    "start": "npm run dev & npm run jserver"
   },
   "dependencies": {
     "@arco-design/web-react": "^2.40.2",
