@@ -1,10 +1,10 @@
+import enUS from '@arco-design/web-react/es/locale/en-US'
+import zhCN from '@arco-design/web-react/es/locale/zh-CN'
 import { atom, selector } from 'recoil'
-import locale_en from '../locale/locale_en'
-import locale_zh from '../locale/locale_zh'
 
 export const localeAtom = atom({
   key: 'localeAtom',
-  default: 'en',
+  default: 'en-US',
 })
 
 export const localeSelector = selector({
@@ -13,12 +13,11 @@ export const localeSelector = selector({
     const locale = get(localeAtom)
 
     switch (locale) {
-      case 'en':
-        return locale_en
-      case 'zh':
-        return locale_zh
+      case 'zh-CN':
+        return zhCN
+      case 'en-US':
       default:
-        return locale_en
+        return enUS
     }
   },
 })

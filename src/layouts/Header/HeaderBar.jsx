@@ -33,7 +33,7 @@ export const HeaderBar = () => {
       <MenuItem
         key="0"
         onClick={() => {
-          setSelectLanguage('en')
+          setSelectLanguage('en-US')
         }}
       >
         English
@@ -41,7 +41,7 @@ export const HeaderBar = () => {
       <MenuItem
         key="1"
         onClick={() => {
-          setSelectLanguage('zh')
+          setSelectLanguage('zh-CN')
         }}
       >
         简体中文
@@ -72,11 +72,17 @@ export const HeaderBar = () => {
   // 点击用户菜单
   const userSettings = (
     <Menu style={{ minWidth: 140 }}>
-      <MenuItem key="0" onClick={handleNav2Settings}>
+      <MenuItem
+        key="0"
+        onClick={handleNav2Settings}
+      >
         <IconEdit style={iconStyle} />
         Settings
       </MenuItem>
-      <MenuItem key="1" onClick={handleLogout}>
+      <MenuItem
+        key="1"
+        onClick={handleLogout}
+      >
         <IconUser style={iconStyle} />
         Log out
       </MenuItem>
@@ -90,8 +96,15 @@ export const HeaderBar = () => {
     <div className={styles.header}>
       <div className={styles.header__items}>
         <Space size="medium">
-          <Dropdown droplist={LanguageOptions} trigger="click" position="br">
-            <Button shape="circle" icon={<IconLanguage />} />
+          <Dropdown
+            droplist={LanguageOptions}
+            trigger="click"
+            position="br"
+          >
+            <Button
+              shape="circle"
+              icon={<IconLanguage />}
+            />
           </Dropdown>
           <Button
             shape="circle"
@@ -99,7 +112,11 @@ export const HeaderBar = () => {
             icon={!isDarkTheme ? <IconMoon /> : <IconSun />}
             onClick={handleThemeToggle}
           />
-          <Dropdown droplist={userSettings} trigger="click" position="bl">
+          <Dropdown
+            droplist={userSettings}
+            trigger="click"
+            position="bl"
+          >
             <Avatar className={styles.avatar}>{userData.name}</Avatar>
           </Dropdown>
         </Space>

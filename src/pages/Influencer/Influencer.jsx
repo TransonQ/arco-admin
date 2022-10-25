@@ -1,3 +1,5 @@
+import { localeLanguage } from '@/locale/locale'
+import { useLocale } from '@/utils/useLocale'
 import {
   Button,
   Card,
@@ -12,7 +14,6 @@ import {
   Tabs,
 } from '@arco-design/web-react'
 import { useState } from 'react'
-
 const columns = [
   {
     title: 'Name',
@@ -70,6 +71,9 @@ const data = [
 ]
 
 export const Influencer = () => {
+  console.log('localeLanguage', localeLanguage)
+  const locale = useLocale()
+  console.log('locale: ', locale)
   // Drawer
   const [visible, setVisible] = useState(false)
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
@@ -100,7 +104,7 @@ export const Influencer = () => {
           <PageHeader
             title="Influencer"
             subTitle="This is a description"
-            extra={<Button type="primary">123123</Button>}
+            extra={<Button type="primary">{locale.test}</Button>}
           />
         </Card>
 
