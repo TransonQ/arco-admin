@@ -26,26 +26,17 @@ export const HeaderBar = () => {
   const nav = useNavigate()
 
   // 多语言切换
-  const [, setSelectLanguage] = useRecoilState(localeAtom)
+  const [selectLanguage, setSelectLanguage] = useRecoilState(localeAtom)
+
   // 多语言选项列表
   const LanguageOptions = (
-    <Menu style={{ minWidth: 140 }}>
-      <MenuItem
-        key="0"
-        onClick={() => {
-          setSelectLanguage('en-US')
-        }}
-      >
-        English
-      </MenuItem>
-      <MenuItem
-        key="1"
-        onClick={() => {
-          setSelectLanguage('zh-CN')
-        }}
-      >
-        简体中文
-      </MenuItem>
+    <Menu
+      style={{ minWidth: 80 }}
+      selectedKeys={[selectLanguage]}
+      onClickMenuItem={setSelectLanguage}
+    >
+      <MenuItem key="en-US">English</MenuItem>
+      <MenuItem key="zh-CN">简体中文</MenuItem>
     </Menu>
   )
 
@@ -71,16 +62,16 @@ export const HeaderBar = () => {
 
   // 点击用户菜单
   const userSettings = (
-    <Menu style={{ minWidth: 140 }}>
+    <Menu style={{ minWidth: 120 }}>
       <MenuItem
-        key="0"
+        key="Settings"
         onClick={handleNav2Settings}
       >
         <IconEdit style={iconStyle} />
         Settings
       </MenuItem>
       <MenuItem
-        key="1"
+        key="Log out"
         onClick={handleLogout}
       >
         <IconUser style={iconStyle} />
@@ -90,7 +81,6 @@ export const HeaderBar = () => {
   )
 
   const userData = useRecoilValue(userSelector)
-  console.log('userData: ', userData)
 
   return (
     <div className={styles.header}>
