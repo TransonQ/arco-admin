@@ -43,8 +43,9 @@ export const Main = () => {
             <Header>
               <HeaderBar />
             </Header>
-            <Layout style={{ padding: '24px' }}>
+            <Layout>
               <Content>{elements}</Content>
+              <Layout.Footer></Layout.Footer>
             </Layout>
           </Layout>
         </Layout>

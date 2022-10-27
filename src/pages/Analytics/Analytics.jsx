@@ -3,6 +3,7 @@ import {
   Divider,
   Grid,
   PageHeader,
+  Space,
   Statistic,
 } from '@arco-design/web-react'
 import { IconArrowFall, IconArrowRise } from '@arco-design/web-react/icon'
@@ -146,102 +147,111 @@ const scale = {
 
 export const Analytics = () => {
   return (
-    <div>
-      <PageHeader
-        style={{ background: 'var(--color-bg-2)' }}
-        title="Analytics Page"
-        subTitle="This is a description"
-        // extra // 展示额外内容	ReactNode
-      />
-      <Card
-        // style={{ width: 360 }}
-        // title="标题: 东京比伦敦热"
-        bordered={false}
-        // extra // 展示额外内容	ReactNode
+    <div style={{ padding: 24 }}>
+      <Space
+        direction="vertical"
+        style={{ width: '100%' }}
+        size="medium"
       >
-        <Grid.Row>
-          <Grid.Col
-            span={7}
-            style={{ textAlign: 'center' }}
-          >
-            <Statistic
-              title="New Users"
-              value={192393}
-              suffix={<IconArrowRise style={{ color: '#ee4d38' }} />}
-              style={{ marginRight: 60, marginBottom: 20 }}
-            />
-          </Grid.Col>
-          <Divider
-            type="vertical"
-            style={{ height: 70 }}
+        <Card bordered={false}>
+          <PageHeader
+            style={{ background: 'var(--color-bg-2)' }}
+            title="Analytics Page"
+            subTitle="This is a description"
+            // extra // 展示额外内容	ReactNode
           />
-          <Grid.Col
-            span={7}
-            style={{ textAlign: 'center' }}
-          >
-            <Statistic
-              title="Active Users"
-              value={934230}
-              suffix={<IconArrowFall style={{ color: '#0fbf60' }} />}
-              style={{ marginRight: 60, marginBottom: 20 }}
-            />
-          </Grid.Col>
-          <Divider
-            type="vertical"
-            style={{ height: 70 }}
-          />
-          <Grid.Col
-            span={7}
-            style={{ textAlign: 'center' }}
-          >
-            <Statistic
-              title="User Growth Rate"
-              value={50.32}
-              precision={2}
-              prefix={<IconArrowRise style={{ color: '#ee4d38' }} />}
-              suffix="%"
-              styleValue={{ color: '#ee4d38' }}
-              style={{ marginRight: 60, marginBottom: 20 }}
-            />
-          </Grid.Col>
-        </Grid.Row>
-        <Divider />
-        <Chart
-          scale={scale}
-          padding={[30, 20, 60, 40]}
-          autoFit
-          height={320}
-          data={data}
-          interactions={['element-active']}
+        </Card>
+
+        <Card
+          // style={{ width: 360 }}
+          // title="标题: 东京比伦敦热"
+          bordered={false}
+          // extra // 展示额外内容	ReactNode
         >
-          <Point
-            position="month*temperature"
-            color="city"
-            shape="circle"
-          />
-          <Line
-            shape="smooth"
-            position="month*temperature"
-            color="city"
-            label="temperature"
-          />
-          <Tooltip
-            shared
-            showCrosshairs
-            region={null}
-            g2-tooltip-list-item={{ display: 'flex' }}
-          />
-          <Legend
-            background={{
-              padding: [5, 100, 5, 36],
-              style: {
-                fill: '#eaeaea',
-                stroke: '#fff',
-              },
-            }}
-          />
-        </Chart>
-      </Card>
+          <Grid.Row>
+            <Grid.Col
+              span={7}
+              style={{ textAlign: 'center' }}
+            >
+              <Statistic
+                title="New Users"
+                value={192393}
+                suffix={<IconArrowRise style={{ color: '#ee4d38' }} />}
+                style={{ marginRight: 60, marginBottom: 20 }}
+              />
+            </Grid.Col>
+            <Divider
+              type="vertical"
+              style={{ height: 70 }}
+            />
+            <Grid.Col
+              span={7}
+              style={{ textAlign: 'center' }}
+            >
+              <Statistic
+                title="Active Users"
+                value={934230}
+                suffix={<IconArrowFall style={{ color: '#0fbf60' }} />}
+                style={{ marginRight: 60, marginBottom: 20 }}
+              />
+            </Grid.Col>
+            <Divider
+              type="vertical"
+              style={{ height: 70 }}
+            />
+            <Grid.Col
+              span={7}
+              style={{ textAlign: 'center' }}
+            >
+              <Statistic
+                title="User Growth Rate"
+                value={50.32}
+                precision={2}
+                prefix={<IconArrowRise style={{ color: '#ee4d38' }} />}
+                suffix="%"
+                styleValue={{ color: '#ee4d38' }}
+                style={{ marginRight: 60, marginBottom: 20 }}
+              />
+            </Grid.Col>
+          </Grid.Row>
+          <Divider />
+          <Chart
+            scale={scale}
+            padding={[30, 20, 60, 40]}
+            autoFit
+            height={320}
+            data={data}
+            interactions={['element-active']}
+          >
+            <Point
+              position="month*temperature"
+              color="city"
+              shape="circle"
+            />
+            <Line
+              shape="smooth"
+              position="month*temperature"
+              color="city"
+              label="temperature"
+            />
+            <Tooltip
+              shared
+              showCrosshairs
+              region={null}
+              g2-tooltip-list-item={{ display: 'flex' }}
+            />
+            <Legend
+              background={{
+                padding: [5, 100, 5, 36],
+                style: {
+                  fill: '#eaeaea',
+                  stroke: '#fff',
+                },
+              }}
+            />
+          </Chart>
+        </Card>
+      </Space>
     </div>
   )
 }
