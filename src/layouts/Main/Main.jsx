@@ -27,18 +27,18 @@ export const Main = () => {
 
   return (
     <Suspense fallback={<FreshPage />}>
-      <Layout className="layout_frame">
-        <Sider
-          collapsed={collapsed}
-          onCollapse={handleCollapsed}
-          collapsible
-          trigger={collapsed ? <IconCaretRight /> : <IconCaretLeft />}
-          breakpoint="xl"
-        >
-          <div className="logo"></div>
-          <LeftBar />
-        </Sider>
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Layout className="layout_frame">
+          <Sider
+            collapsed={collapsed}
+            onCollapse={handleCollapsed}
+            collapsible
+            trigger={collapsed ? <IconCaretRight /> : <IconCaretLeft />}
+            breakpoint="xl"
+          >
+            <div className="logo"></div>
+            <LeftBar />
+          </Sider>
           <Layout>
             <Header>
               <HeaderBar />
@@ -47,8 +47,8 @@ export const Main = () => {
               <Content>{elements}</Content>
             </Layout>
           </Layout>
-        </ErrorBoundary>
-      </Layout>
+        </Layout>
+      </ErrorBoundary>
     </Suspense>
   )
 }

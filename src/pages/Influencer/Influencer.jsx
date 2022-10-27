@@ -12,7 +12,7 @@ import {
   Table,
   Tabs,
 } from '@arco-design/web-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 const columns = [
   {
     title: 'Name',
@@ -74,6 +74,10 @@ export const Influencer = () => {
   // Drawer
   const [visible, setVisible] = useState(false)
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
+
+  useEffect(() => {
+    throw new Error('123')
+  }, [])
 
   return (
     <div>
