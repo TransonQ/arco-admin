@@ -1,6 +1,7 @@
 import { localeAtom } from '@/global/localeState'
 import { userSelector } from '@/global/userState'
 import { useToggleLocalState } from '@/hooks/useToggleLocalState'
+import { changeTheme } from '@/utils/changeTheme'
 import { Avatar, Button, Dropdown, Menu, Space } from '@arco-design/web-react'
 import {
   IconEdit,
@@ -45,13 +46,7 @@ export const HeaderBar = () => {
     useToggleLocalState('arco_admin_dark_theme')
 
   useEffect(() => {
-    if (isDarkTheme) {
-      // 设置为暗黑主题
-      document.body.setAttribute('arco-theme', 'dark')
-    } else {
-      // 恢复亮色主题
-      document.body.removeAttribute('arco-theme')
-    }
+    changeTheme(isDarkTheme)
   }, [isDarkTheme])
 
   // 用户设置
