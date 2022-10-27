@@ -13,7 +13,7 @@ import {
 import { useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import styles from './header.module.css'
+import styles from './header.module.less'
 
 const MenuItem = Menu.Item
 
@@ -79,7 +79,7 @@ export const HeaderBar = () => {
 
   return (
     <div className={styles.header}>
-      <div className={styles.header__items}>
+      <div className={styles.header_items}>
         <Space size="medium">
           <Dropdown
             droplist={LanguageOptions}
