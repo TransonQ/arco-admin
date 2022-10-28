@@ -30,4 +30,5 @@ const FixHolder = styled(Holder)`
   bottom: 0;
   background-color: var(--color-bg-3);
   display: flex;
+  padding-left: 24px;
 `

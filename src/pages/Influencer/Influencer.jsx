@@ -1,4 +1,3 @@
-import { FooterSave } from '@/components/FooterSave/FooterSave'
 import { useLocale } from '@/hooks/useLocale'
 import {
   Button,
@@ -251,7 +250,6 @@ export const Influencer = () => {
           </Card>
         </Space>
       </div>
-      <FooterSave />
     </>
   )
 }
