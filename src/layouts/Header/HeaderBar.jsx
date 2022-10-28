@@ -70,7 +70,7 @@ export const HeaderBar = () => {
         onClick={handleLogout}
       >
         <IconUser style={iconStyle} />
-        Log out测试
+        Log out
       </MenuItem>
     </Menu>
   )
